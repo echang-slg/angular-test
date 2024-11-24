@@ -16,7 +16,7 @@ import { appRoutes } from './app.routes';
       serverLogLevel: NgxLoggerLevel.ERROR, // Log errors to the server
       serverLoggingUrl: '/api/logs'     // Optional: Server endpoint for logs
     }),
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes, { bindToComponentInputs: true})
   ],
   providers: [], // Add services at the root level
   bootstrap: [AppComponent], // Bootstrap the root component
