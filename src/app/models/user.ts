@@ -1,3 +1,5 @@
+import { Task } from './';
+
 export type User = {
   id: number;
   name: string;
@@ -6,4 +8,6 @@ export type User = {
   occupation?: string;
   birthDay?: Date;
   avatar: string;
+
+  tasks?: Task[];
 }
