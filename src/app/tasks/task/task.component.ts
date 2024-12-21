@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { dayjs } from '@util';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Task } from '@model';
 import { CommonModule } from '@angular/common';
 
@@ -9,5 +10,13 @@ import { CommonModule } from '@angular/common';
   styleUrl: './task.component.css'
 })
 export class TaskComponent {
-  @Input({required: true}) task!: Task;
+  @Input({ required: true }) task!: Task;
+  @Output() complete = new EventEmitter<Task>();
+
+  onCompleteTask() {
+    //this.complete.emit(this.task);
+    this.task.completed = true;
+    this.task.completeDate = dayjs().utc().toDate()
+    console.log(this.task);
+  }
 }

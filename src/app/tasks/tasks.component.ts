@@ -1,20 +1,33 @@
-import { Component, Input, input } from '@angular/core';
+import { dayjs } from '@util';
+import { Component, Input, input, Output } from '@angular/core';
 import { User, Task } from '@model';
 import { TaskComponent } from "./task/task.component";
 import dummyTasks from "@mock-data/dummy-tasks.json";
+import { NewTaskComponent } from "./new-task/new-task.component";
 
 const tasks = dummyTasks as Task[];
 
 @Component({
   selector: 'app-tasks',
-  imports: [TaskComponent],
+  imports: [TaskComponent, NewTaskComponent],
   templateUrl: './tasks.component.html',
   styleUrl: './tasks.component.css'
 })
 export class TasksComponent {
   @Input() user?: User;
   //user = input.required()
+
+  @Output() startAddTask: boolean = false;
+
   get selectedUserTasks(): Task[] | null {
-    return tasks.filter((task: Task) => task.userId === this.user?.id)
+    return tasks.filter((task: Task) => task.userId === this.user?.id && !task.completed)
+  }
+
+  addTask() {
+    this.startAddTask = true;
+  }
+
+  onCancelAddTask() {
+    this.startAddTask = false;
   }
 }

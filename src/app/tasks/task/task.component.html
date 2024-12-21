@@ -5,7 +5,9 @@
 
   @if (!task.completed) {
     <p class="actions">
-      <button>Complete</button>
+      <button (click)="onCompleteTask()">Complete</button>
     </p>
+  } @else {
+    <p>Task was completed on {{task.completeDate | date: 'yyyy-MM-dd hh:mm'}}</p>
   }
 </article>

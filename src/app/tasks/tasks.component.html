@@ -1,18 +1,21 @@
-<p>tasks of user {{user?.name}}</p>
+@if(startAddTask) {
+  <app-new-task (cancel)="onCancelAddTask()"/>
+}
+<p>tasks of user {{ user?.name }}</p>
 
 <section id="tasks">
   <header>
     <h2>{{ user?.name }}'s Tasks</h2>
     <menu>
-      <button>Add Task</button>
+      <button (click)="addTask()">Add Task</button>
     </menu>
   </header>
 
   <ul>
     @for (task of selectedUserTasks; track task.id) {
-      <li>
-        <app-task [task]="task"/>
-      </li>
+    <li>
+      <app-task [task]="task" />
+    </li>
     }
   </ul>
 </section>
