@@ -1,13 +1,14 @@
 import { Injectable } from "@angular/core";
 import dummyTasks from "@mock-data/dummy-tasks.json";
 import { Task, NewTask, User } from "@model";
+import { LoggingService } from "@services/logging.service";
 import { dayjs } from '@util';
 
 @Injectable({providedIn: 'root'})
 export class TasksService {
   private tasks = dummyTasks as Task[];
 
-  constructor() {
+  constructor(private logger: LoggingService) {
     const tasks = localStorage.getItem('tasks');
 
     if (tasks) {
@@ -24,7 +25,7 @@ export class TasksService {
   }
 
   addTask(taskData: NewTask, user: User) {
-    console.log(taskData);
+    this.logger.debug(`add task...`);
     this.tasks = [{ ...taskData, id: Math.random(), userId: user.id, completed: false, createdAt: dayjs().utc().toDate() }, ...this.tasks];
     this.saveTasks();
   }

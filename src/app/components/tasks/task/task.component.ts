@@ -3,6 +3,7 @@ import { Task } from '@model';
 import { CommonModule } from '@angular/common';
 import { CardComponent } from "../../shared/card/card.component";
 import { TasksService } from '../tasks.service';
+import { LoggingService } from '@services/logging.service';
 
 @Component({
   selector: 'app-task',
@@ -11,12 +12,13 @@ import { TasksService } from '../tasks.service';
   styleUrl: './task.component.css'
 })
 export class TaskComponent {
-  constructor(private tasksService: TasksService) { }
+  constructor(private tasksService: TasksService, private logger: LoggingService) { }
 
   @Input({ required: true }) task!: Task;
   @Output() complete = new EventEmitter<Task>();
 
   onCompleteTask() {
+    this.logger.log(`Task ${this.task.id} completed.`);
     this.tasksService.completeTask(this.task.id);
   }
 }

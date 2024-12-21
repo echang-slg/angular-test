@@ -23,6 +23,7 @@
       "@model": ["src/app/models/index.ts"],
       "@util": ["src/app/utils/index.ts"],
       "@components/*": ["src/app/components/*"],
+      "@services/*": ["src/app/services/*"],
       "@mock-data/*": ["src/app/mock-data/*"],
     }
   },

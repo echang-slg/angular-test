@@ -2,8 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
 import { AppComponent } from './app.component';
-import { RouterModule } from '@angular/router';
-import { appRoutes } from './app.routes';
+import { AppRoutingModule } from './app.routing.module';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import { HeaderComponent } from '@components/header/header.component';
@@ -15,6 +14,7 @@ import { TasksComponent } from "@components/tasks/tasks.component";
     AppComponent
   ],
   imports: [
+    AppRoutingModule,
     CommonModule,
     BrowserModule, // Import BrowserModule for web apps
     LoggerModule.forRoot({
@@ -26,7 +26,6 @@ import { TasksComponent } from "@components/tasks/tasks.component";
     UserComponent,
     TasksComponent,
     RouterOutlet, RouterLink, RouterLinkActive,
-    RouterModule.forRoot(appRoutes, { bindToComponentInputs: true})
   ],
   providers: [], // Add services at the root level
   bootstrap: [AppComponent]
