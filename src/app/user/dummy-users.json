@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "name": "John",
+    "email": "john@dummy.com",
+    "age": 30,
+    "avatar": "avatar1.svg"
+  },
+  {
+    "id": 2,
+    "name": "Jane",
+    "email": "jane@dummy.com",
+    "age": 25,
+    "avatar": "avatar2.svg"
+  },
+  {
+    "id": 3,
+    "name": "Jack",
+    "email": "jack@dummy.com",
+    "age": 20,
+    "avatar": "avatar3.svg"
+  },
+  {
+    "id": 4,
+    "name": "Jill",
+    "email": "jill@dummy.com",
+    "age": 15,
+    "avatar": "avatar4.svg"
+  },
+  {
+    "id": 5,
+    "name": "Joe",
+    "email": "joe@dummy.com",
+    "age": 10,
+    "avatar": "avatar5.svg"
+  }
+]
