@@ -1,8 +1,8 @@
-import { dayjs } from '@util';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Task } from '@model';
 import { CommonModule } from '@angular/common';
 import { CardComponent } from "../../shared/card/card.component";
+import { TasksService } from '../tasks.service';
 
 @Component({
   selector: 'app-task',
@@ -11,13 +11,12 @@ import { CardComponent } from "../../shared/card/card.component";
   styleUrl: './task.component.css'
 })
 export class TaskComponent {
+  constructor(private tasksService: TasksService) { }
+
   @Input({ required: true }) task!: Task;
   @Output() complete = new EventEmitter<Task>();
 
   onCompleteTask() {
-    //this.complete.emit(this.task);
-    this.task.completed = true;
-    this.task.completeDate = dayjs().utc().toDate()
-    console.log(this.task);
+    this.tasksService.completeTask(this.task.id);
   }
 }

@@ -1,10 +1,8 @@
-import { dayjs } from '@util';
-import { Component, Input, input, Output } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 import { User, Task, NewTask } from '@model';
 import { TaskComponent } from "./task/task.component";
-import dummyTasks from "@mock-data/dummy-tasks.json";
 import { NewTaskComponent } from "./new-task/new-task.component";
-
+import { TasksService } from './tasks.service';
 
 @Component({
   selector: 'app-tasks',
@@ -13,14 +11,15 @@ import { NewTaskComponent } from "./new-task/new-task.component";
   styleUrl: './tasks.component.css'
 })
 export class TasksComponent {
-  tasks = dummyTasks as Task[];
+  constructor(private tasksService: TasksService) {}
+
   @Input() user?: User;
   //user = input.required()
 
   @Output() startAddTask: boolean = false;
 
   get selectedUserTasks(): Task[] | null {
-    return this.tasks.filter((task: Task) => task.userId === this.user?.id && !task.completed)
+    return this.tasksService.geUserTasks(this.user!);
   }
 
   addTask() {
@@ -33,7 +32,7 @@ export class TasksComponent {
 
   onAddTask(taskData: NewTask) {
     console.log(taskData);
-    this.tasks = [{ ...taskData, id: Math.random(), userId: this.user!.id, completed: false, createdAt: dayjs().utc().toDate() }, ...this.tasks];
+    this.tasksService.addTask(taskData, this.user!);
     this.startAddTask = false;
   }
 

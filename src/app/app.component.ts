@@ -2,7 +2,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
-import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { UserComponent } from "./user/user.component";
 import dummyUserData from '@mock-data/dummy-users.json';
@@ -29,7 +28,6 @@ export class AppComponent {
   }
 
   onSelectUser(id: any) {
-    //console.log('selected user id: ', id);
     this.selectedUserId = id as number;
   }
 }
