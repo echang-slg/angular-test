@@ -1,5 +1,5 @@
 import { Component, Input, Output } from '@angular/core';
-import { User, Task, NewTask } from '@model';
+import { User, Task } from '@model';
 import { TaskComponent } from "./task/task.component";
 import { NewTaskComponent } from "./new-task/new-task.component";
 import { TasksService } from './tasks.service';
@@ -26,13 +26,7 @@ export class TasksComponent {
     this.startAddTask = true;
   }
 
-  onCancelAddTask() {
-    this.startAddTask = false;
-  }
-
-  onAddTask(taskData: NewTask) {
-    console.log(taskData);
-    this.tasksService.addTask(taskData, this.user!);
+  onCloseTask() {
     this.startAddTask = false;
   }
 

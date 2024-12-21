@@ -1,7 +1,8 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { TasksService } from './../tasks.service';
+import { Component, EventEmitter, inject, Output, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-import { NewTask } from '@model';
+import { User } from '@model';
 import { dayjs } from '@util';
 
 @Component({
@@ -11,8 +12,10 @@ import { dayjs } from '@util';
   styleUrl: './new-task.component.css'
 })
 export class NewTaskComponent {
-  @Output() cancel = new EventEmitter<void>();
-  @Output() add = new EventEmitter<NewTask>();
+  private tasksService: TasksService = inject(TasksService);
+
+  @Input({required: true}) user!: User
+  @Output() close = new EventEmitter<void>();
 
   enteredTitle: string = '';
   enteredSummary: string = '';
@@ -21,15 +24,17 @@ export class NewTaskComponent {
   onAddTask() {
     // emit a signal to trigger a function call
     // pass the data to the function call
-    this.add.emit({
+    this.tasksService.addTask({
       title: this.enteredTitle,
       summary: this.enteredSummary,
       dueDate: dayjs(this.enteredDueDate!).format()
-    });
+    }, this.user);
+
+    this.close.emit();
   }
 
   onCancel() {
-    this.cancel.emit(); // emit a signal to trigger a function call
+    this.close.emit(); // emit a signal to trigger a function call
   }
 
 }
