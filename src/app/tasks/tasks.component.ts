@@ -1,6 +1,9 @@
 import { Component, Input, input } from '@angular/core';
 import { User, Task } from '@model';
-import { TaskComponent } from "../task/task.component";
+import { TaskComponent } from "./task/task.component";
+import dummyTasks from "@mock-data/dummy-tasks.json";
+
+const tasks = dummyTasks as Task[];
 
 @Component({
   selector: 'app-tasks',
@@ -11,16 +14,7 @@ import { TaskComponent } from "../task/task.component";
 export class TasksComponent {
   @Input() user?: User;
   //user = input.required()
-  selectedUserTasks: Task[] = this.user?.tasks ?? [];
-
-  ngOnInit(): void {
-    this.selectedUserTasks.push({
-      id: 1,
-      title: "Task 1",
-      description: "Description 1",
-      completed: false,
-      userId: 1
-    });
+  get selectedUserTasks(): Task[] | null {
+    return tasks.filter((task: Task) => task.userId === this.user?.id)
   }
-
 }

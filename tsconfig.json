@@ -21,7 +21,8 @@
     "baseUrl": "./",
     "paths": {
       "@model": ["src/app/models/index.ts"],
-      "@shared/*": ["src/shared/*"]
+      "@shared/*": ["src/shared/*"],
+      "@mock-data/*": ["src/app/mock-data/*"],
     }
   },
   "angularCompilerOptions": {

@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "userId": 1,
+    "title": "Learn Angular",
+    "summary": "learn Angular from begining to advanced",
+    "dueDate": "2024-02-28T00:00:00Z",
+    "completed": false
+  },
+  {
+    "id": 2,
+    "userId": 2,
+    "title": "Learn React",
+    "summary": "learn React",
+    "dueDate": "2024-02-28T00:00:00Z",
+    "completed": false
+  },
+  {
+    "id": 3,
+    "userId": 4,
+    "title": "Learn Vue",
+    "summary": "learn Vue",
+    "dueDate": "2024-12-30T00:00:00Z",
+    "completed": false
+  },
+  {
+    "id": 4,
+    "userId": 1,
+    "title": "Learn Node",
+    "summary": "learn Node",
+    "dueDate": "2024-02-28T00:00:00Z",
+    "completed": false
+  },
+  {
+    "id": 5,
+    "userId": 2,
+    "title": "Learn Express",
+    "summary": "learn Express",
+    "dueDate": "2024-02-28T00:00:00Z",
+    "completed": false
+  },
+  {
+    "id": 6,
+    "userId": 3,
+    "title": "Learn MongoDB",
+    "summary": "learn MongoDB",
+    "dueDate": "2024-02-28T00:00:00Z",
+    "completed": false
+  }
+]

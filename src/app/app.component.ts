@@ -5,7 +5,7 @@ import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { UserComponent } from "./user/user.component";
-import dummyUserData from './user/dummy-users.json';
+import dummyUserData from '@mock-data/dummy-users.json';
 import { User } from '@model';
 import { TasksComponent } from "./tasks/tasks.component";
 

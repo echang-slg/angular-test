@@ -1,6 +1,5 @@
 import { Component, Input, input, computed, signal, Output, output, EventEmitter } from '@angular/core';
 import { User } from '../models';
-import dummyUserData from './dummy-users.json';
 
 
 @Component({
