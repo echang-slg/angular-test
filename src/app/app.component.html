@@ -2,16 +2,13 @@
 
 <main>
   <ul id="users">
-    <li><app-user></app-user></li>
-    <li>
-      <a
-        routerLink="/home"
-        routerLinkActive="active"
-        ariaCurrentWhenActive="page"
-        >Home Component</a
-      >
-    </li>
+    @for (user of users; track user.id) {
+    <li><app-user [avatar]="user.avatar" [name]="user.name"></app-user></li>
+    }
+    <li></li>
   </ul>
 </main>
+
+<a routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page">Home Component</a>
 
 <router-outlet />
