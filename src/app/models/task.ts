@@ -8,3 +8,9 @@ export type Task = {
   createdAt?: Date;
   completeDate?: Date;
 };
+
+export type NewTask = {
+  title: string;
+  summary: string;
+  dueDate?: string;
+}

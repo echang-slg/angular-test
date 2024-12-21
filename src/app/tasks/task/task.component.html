@@ -1,13 +1,15 @@
-<article>
-  <h2>{{task.title}}</h2>
-  <time>{{task.dueDate | date: 'yyyy-MM-dd'}}</time>
-  <p>{{task.summary}}</p>
+<app-card>
+  <article>
+    <h2>{{task.title}}</h2>
+    <time>{{task.dueDate | date: 'yyyy-MM-dd'}}</time>
+    <p>{{task.summary}}</p>
 
-  @if (!task.completed) {
-    <p class="actions">
-      <button (click)="onCompleteTask()">Complete</button>
-    </p>
-  } @else {
-    <p>Task was completed on {{task.completeDate | date: 'yyyy-MM-dd hh:mm'}}</p>
-  }
-</article>
+    @if (!task.completed) {
+      <p class="actions">
+        <button (click)="onCompleteTask()">Complete</button>
+      </p>
+    } @else {
+      <p>Task was completed on {{task.completeDate | date: 'yyyy-MM-dd hh:mm'}}</p>
+    }
+  </article>
+</app-card>

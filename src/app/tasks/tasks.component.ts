@@ -1,11 +1,10 @@
 import { dayjs } from '@util';
 import { Component, Input, input, Output } from '@angular/core';
-import { User, Task } from '@model';
+import { User, Task, NewTask } from '@model';
 import { TaskComponent } from "./task/task.component";
 import dummyTasks from "@mock-data/dummy-tasks.json";
 import { NewTaskComponent } from "./new-task/new-task.component";
 
-const tasks = dummyTasks as Task[];
 
 @Component({
   selector: 'app-tasks',
@@ -14,13 +13,14 @@ const tasks = dummyTasks as Task[];
   styleUrl: './tasks.component.css'
 })
 export class TasksComponent {
+  tasks = dummyTasks as Task[];
   @Input() user?: User;
   //user = input.required()
 
   @Output() startAddTask: boolean = false;
 
   get selectedUserTasks(): Task[] | null {
-    return tasks.filter((task: Task) => task.userId === this.user?.id && !task.completed)
+    return this.tasks.filter((task: Task) => task.userId === this.user?.id && !task.completed)
   }
 
   addTask() {
@@ -30,4 +30,11 @@ export class TasksComponent {
   onCancelAddTask() {
     this.startAddTask = false;
   }
+
+  onAddTask(taskData: NewTask) {
+    console.log(taskData);
+    this.tasks = [{ ...taskData, id: Math.random(), userId: this.user!.id, completed: false, createdAt: dayjs().utc().toDate() }, ...this.tasks];
+    this.startAddTask = false;
+  }
+
 }
