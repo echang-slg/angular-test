@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CardComponent } from '@shared/card/card.component';
+import { CardComponent } from 'src/app/components/shared/card/card.component';
 
 @NgModule({
   declarations: [CardComponent],

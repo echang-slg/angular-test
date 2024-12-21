@@ -22,7 +22,7 @@
     "paths": {
       "@model": ["src/app/models/index.ts"],
       "@util": ["src/app/utils/index.ts"],
-      "@shared/*": ["src/app/shared/*"],
+      "@components/*": ["src/app/components/*"],
       "@mock-data/*": ["src/app/mock-data/*"],
     }
   },

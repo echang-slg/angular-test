@@ -6,9 +6,9 @@ import { RouterModule } from '@angular/router';
 import { appRoutes } from './app.routes';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
-import { HeaderComponent } from './header/header.component';
-import { UserComponent } from "./user/user.component";
-import { TasksComponent } from "./tasks/tasks.component";
+import { HeaderComponent } from '@components/header/header.component';
+import { UserComponent } from "@components/user/user.component";
+import { TasksComponent } from "@components/tasks/tasks.component";
 
 @NgModule({
   declarations: [
