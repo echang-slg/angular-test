@@ -1,5 +1,5 @@
 import { Component, Input, input } from '@angular/core';
-import { User, Task } from '../models';
+import { User, Task } from '@model';
 import { TaskComponent } from "../task/task.component";
 
 @Component({

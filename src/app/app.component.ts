@@ -6,7 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { UserComponent } from "./user/user.component";
 import dummyUserData from './user/dummy-users.json';
-import { User } from './models';
+import { User } from '@model';
 import { TasksComponent } from "./tasks/tasks.component";
 
 @Component({
@@ -22,14 +22,14 @@ import { TasksComponent } from "./tasks/tasks.component";
 export class AppComponent {
   title = 'angular-test';
   users: User[] = dummyUserData as User[];
-  selectedUserId: number = 0;
+  selectedUserId?: number;
 
   get selectedUser() {
     return this.users.find(user => user.id === this.selectedUserId);
   }
 
   onSelectUser(id: any) {
-    console.log('selected user id: ', id);
+    //console.log('selected user id: ', id);
     this.selectedUserId = id as number;
   }
 }
