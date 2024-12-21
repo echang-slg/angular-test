@@ -1,4 +1,4 @@
-import { Component, Input, input, computed, signal } from '@angular/core';
+import { Component, Input, input, computed, signal, Output, output, EventEmitter } from '@angular/core';
 import { User } from '../models';
 import dummyUserData from './dummy-users.json';
 
@@ -29,13 +29,16 @@ export class UserComponent {
   */
 
   // @Input({ required: true }) avatar!: string;
+  @Input({ required: true }) id!: number;
   @Input({ required: true }) name!: string;
+  // @Output() select = new EventEmitter<number>();
+  select = output<number>();
 
   avatar = input.required();   // using signal
 
   imagePath = computed(() => `assets/images/${this.avatar()}`)
 
   onClickUser() {
-
+    this.select.emit(this.id);
   }
 }

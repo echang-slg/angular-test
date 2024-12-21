@@ -3,10 +3,13 @@
 <main>
   <ul id="users">
     @for (user of users; track user.id) {
-    <li><app-user [avatar]="user.avatar" [name]="user.name"></app-user></li>
+      <li><app-user [id]="user.id" [avatar]="user.avatar" [name]="user.name" (select)="onSelectUser($event)"/></li>
     }
     <li></li>
   </ul>
+  @if (selectedUserId) {
+    <app-tasks [user]="selectedUser!" />
+  }
 </main>
 
 <a routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page">Home Component</a>
