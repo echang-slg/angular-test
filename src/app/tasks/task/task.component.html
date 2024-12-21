@@ -1,7 +1,7 @@
 <app-card>
   <article>
     <h2>{{task.title}}</h2>
-    <time>{{task.dueDate | date: 'yyyy-MM-dd'}}</time>
+    <time>{{task.dueDate | date: 'fullDate'}}</time>
     <p>{{task.summary}}</p>
 
     @if (!task.completed) {
