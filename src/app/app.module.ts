@@ -8,6 +8,7 @@ import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import { HeaderComponent } from '@components/header/header.component';
 import { UserComponent } from "@components/user/user.component";
 import { TasksComponent } from "@components/tasks/tasks.component";
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,11 +18,13 @@ import { TasksComponent } from "@components/tasks/tasks.component";
     AppRoutingModule,
     CommonModule,
     BrowserModule, // Import BrowserModule for web apps
+    HttpClientModule,  //only needed if want to log on server
     LoggerModule.forRoot({
       level: NgxLoggerLevel.DEBUG,       // Set default log level
       serverLogLevel: NgxLoggerLevel.ERROR, // Log errors to the server
-      serverLoggingUrl: '/api/logs'     // Optional: Server endpoint for logs
-    }),
+      serverLoggingUrl: '/api/logs'     // Optional: Server endpoint for logs,
+    },
+    ),
     HeaderComponent,
     UserComponent,
     TasksComponent,
